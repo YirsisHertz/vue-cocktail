@@ -1,17 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Consumo de la Drink API con VueJS 3" />
-    <title>Cocktail API</title>
-    <script src="https://unpkg.com/vue@next"></script>
+    <meta
+      name="description"
+      content="V-Cocktails es un app diseñada para consultar facilmente cocktails buscando el tipo de alcohol a emplear."
+    />
+
+    <!-- PWA Metadata -->
+    <meta name="theme-color" content="#212529" />
+    <meta name="MobileOptimized" content="width" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta
+      name="apple-mobile-web-app-status-bar-style"
+      content="black-translucent"
+    />
+
+    <title>V-Cocktails</title>
     <link
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
       rel="stylesheet"
       integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
       crossorigin="anonymous"
     />
+
+    <link rel="manifest" href="./manifest.json" />
+
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+
+    <link rel="shortcut icon" href="./img/favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="./img/favicon.png" type="image/png" />
+    <link rel="apple-touch-icon" href="./img/favicon.png" />
+    <link rel="apple-touch-startup-image" href="./img/favicon.png" />
+
+    <script src="https://unpkg.com/vue@next"></script>
   </head>
   <body>
     <div id="app">
@@ -31,21 +56,37 @@
           <p>Search: {{search}}</p>
         </center>
         <div class="container">
-          <div
-            class="card p-3 m-3 row text-center"
-            v-for="drink in drinks"
-            :key="drink.idDrink"
-          >
-            <div class="col-5 col-sm-6 w-100">
-              <img class="img-fluid" :src="drink.strDrinkThumb" alt="drink" />
+          <div class="row">
+            <div
+              class="col-xl-2 col-lg-3 card p-3 m-2 text-center"
+              v-for="drink in drinks"
+              :key="drink.idDrink"
+            >
+              <div>
+                <img
+                  class="img-fluid"
+                  :src="drink.strDrinkThumb"
+                  :alt="drink.strDrink"
+                  loading="lazy"
+                />
 
-              <h2>Drink Name: {{drink.strDrink}}</h2>
+                <h2>Drink Name: {{drink.strDrink}}</h2>
 
-              <p>Instructions: {{drink.strInstructions}}</p>
+                <p>Instructions: {{drink.strInstructions}}</p>
+              </div>
             </div>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="text-center bg-dark text-white p-3">
+      Iconos diseñados por
+      <a href="https://www.flaticon.es/autores/freepik" title="Freepik"
+        >Freepik</a
+      >
+      from
+      <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
     </div>
 
     <script src="./js/main.js"></script>

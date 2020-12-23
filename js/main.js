@@ -1,3 +1,10 @@
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("../sw.js")
+    .then((res) => console.log("Register SW"))
+    .catch((err) => console.log(err));
+}
+
 const app = Vue.createApp({
   data() {
     return {
@@ -16,6 +23,8 @@ const app = Vue.createApp({
       );
       const data = await fetchData.json();
       const drinksData = data.drinks;
+
+      // console.log(drinksData);
 
       this.drinks = drinksData;
     },
