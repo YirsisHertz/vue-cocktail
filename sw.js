@@ -16,17 +16,21 @@ const urlsToCache = [
   "./manifest.json",
   "./js/main.js",
   "./js/mountApp.js",
+  "./sw.js",
   "https://unpkg.com/vue@next",
 ];
 
 self.addEventListener("install", (e) => {
   e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) =>
-      cache
-        .addAll(urlsToCache)
-        .then(() => self.skipWaiting())
-        .catch((err) => console.log(err))
-    )
+    caches
+      .open(CACHE_NAME)
+      .then((cache) =>
+        cache
+          .addAll(urlsToCache)
+          .then(() => self.skipWaiting())
+          .catch((err) => console.log(err))
+      )
+      .catch((err) => console.log(err))
   );
 });
 
