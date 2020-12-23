@@ -89,6 +89,17 @@
       <a href="https://www.flaticon.es/" title="Flaticon">www.flaticon.es</a>
     </div>
 
+    <script>
+      
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("./sw.js")
+          .then((res) => console.log("Register SW"))
+          .catch((err) => console.log(err));
+        }
+    
+    </script>
+    
     <script src="./js/main.js"></script>
     <script src="./js/mountApp.js"></script>
   </body>
